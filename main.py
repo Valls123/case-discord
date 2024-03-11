@@ -54,46 +54,24 @@ async def case(ctx):
         picture = discord.File(f)
     await ctx.send(file=picture)
 
-@bot.command()
-async def case2(ctx):
-    await ctx.reply(mention_author=False)
-    await ctx.reply(f'Кручу кейс, посмотрим, что-же выпадет?!')
-
-    chances = {
-        'HistoryDragon': 0.1,
-        'M9': 0.2,
-        'shirp': 0.5,
-        'shirp2': 0.4
-    }
-
-    array = os.listdir('case')  # Получаем массив с названиями картинок
-    array_chances = [chances.get(name, 1) for name in array]  # Задаем вероятности для каждой картинки, если нет значения - ставим по умолчанию 1
-
-    chosen_picture = random.choices(array, weights=array_chances, k=1)[0]  # Выбираем картинку с учетом заданных вероятностей
-
-    with open(f'case/{chosen_picture}', 'rb') as f:
-        picture = discord.File(f)
-    await ctx.send(file=picture)
 
 @bot.command('duck')
 async def duck(ctx):
     '''По команде duck вызывает функцию get_duck_image_url'''
-    image_url = get_duck_image_url()
-    await ctx.send(image_url)
+    await ctx.send(get_duck_image_url())
 
 
+@bot.command()
+async def eco(ctx):
+    embed=discord.Embed(title="Экология(Кликабельно)", url="https://www.products.pcc.eu/ru/blog/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-%D1%8D%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B5-%D0%BE%D0%B1-%D1%8D%D1%82%D0%BE%D0%BC-%D0%BF/", description="Не мусори на природе, не порти экологию!", color=0x3ee133)
+    embed.set_author(name="Ответ на запрос!")
+    embed.add_field(name="Зачем?", value="Она помогает нам сохранять природу!", inline=True)
+    embed.add_field(name="Что сделать?", value="Ознакомьтесь с информацией по ссылке!", inline=True)
+    await ctx.send(embed=embed)
 
-#@bot.command()
-#@commands.has_permissions(administrator = True)# команду сможет использовать роль в которой включена привилегия Администратор.
-#@commands.has_any_role('Админчик типа да')# все у кого есть роль с именем Администратор могут использовать эту команду
-#@commands.has_role(1216448687832567898)#надо вставить id роли которая сможет использовать эту команду
-#async def warn(ctx, member: discord.Member, *, about: str):
-    #if member:
-        #embed = discord.Embed(color = 0x537cda, description = f'Участник **{member.name}** получил предупреждение от **{ctx.message.author.name}** по причине:\n**```\n{about}\n```**')
-        #await ctx.send(embed = embed)
-    #else:
-       # embed = discord.Embed(color = 0x537cda, description = 'Ошибка в аргументах команды\nили участник не найден.', title = 'Ошибка')
-        #await ctx.send(embed = embed)
+    
+
+
 
 @bot.command()
 async def helping(ctx):
