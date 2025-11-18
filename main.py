@@ -78,4 +78,4 @@ async def helping(ctx):
     await ctx.reply(mention_author=False)
     await ctx.reply(f'Команды бота \n 1.!spam - позволяет поспамить определённое кол-во сообщений. \n 2. !heh посмеяться вместе с ботом. \n 3. !hello - поздороваться с ботом. \n 4. !add - сложить 2 числа / или 2 текста в едино.')
 
-bot.run("MTIxMjQ0NjMxMjA0MjA3MDE2Nw.G2BOQc.kw6ejZ6qZBK39FBRc8g1P_zHJM2iQt1vpoitCM")
+bot.run("TOKEN") #ТОКЕН ИЗ ПРОШЛОЙ ВЕРСИИ НЕРАБОЧИЙ))
